@@ -1,0 +1,24 @@
+<inbound>
+  <base />
+  <cors allow-credentials="true">
+    <allowed-origins>
+      <!-- Localhost for development -->
+      <origin>https://app.domain.com/</origin>
+      <origin>https://localhost:4000/</origin>
+    </allowed-origins>
+    <allowed-methods preflight-result-max-age="300">
+      <method>GET</method>
+      <method>POST</method>
+      <method>PUT</method>
+      <!--<method>DELETE</method>-->
+    </allowed-methods>
+    <allowed-headers>
+      <header>x-application-context</header>
+      <header>Content-Type</header>
+      <header>Accept</header>
+    </allowed-headers>
+    <expose-headers>
+      <header>x-application-context</header>
+    </expose-headers>
+  </cors>
+</inbound>

@@ -1,0 +1,5 @@
+<inbound>
+  <base />
+  <rate-limit-by-key calls="50" renewal-period="90"
+    counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+</inbound>

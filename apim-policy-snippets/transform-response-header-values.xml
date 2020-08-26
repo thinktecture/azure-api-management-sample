@@ -1,0 +1,7 @@
+<outbound>
+  <set-header name="location" exists-action="override">
+    <value>@(context.Response.Headers.GetValueOrDefault("location", "")
+       .Replace(context.Request.Url.Host, context.Request.OriginalUrl.Host))</value> 
+  </set-header>
+  <base />
+</outbound>

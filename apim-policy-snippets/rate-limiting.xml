@@ -1,0 +1,4 @@
+<inbound>
+  <base />
+  <rate-limit calls="50" renewal-period="90" />
+</inbound>

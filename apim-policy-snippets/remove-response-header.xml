@@ -1,0 +1,4 @@
+<outbound>
+  <set-header name="X-Powered-By" exists-action="delete" />
+  <base />
+</outbound>

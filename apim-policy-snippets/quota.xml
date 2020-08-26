@@ -1,0 +1,4 @@
+<inbound>
+  <base />
+  <quota calls="5000" bandwidth="1048576" renewal-period="10800" />
+</inbound>

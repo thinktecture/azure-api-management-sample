@@ -1,0 +1,27 @@
+<inbound>
+  <base />
+  <send-request mode="new" response-variable-name="customers" timeout="20" ignore-error="true">
+    <set-url>https://as-apim-2020-customers.azurewebsites.net/customers/count</set-url>
+    <set-method>GET</set-method>
+    <set-header name="Content-Type" exists-action="override">
+      <value>application/json</value>
+    </set-header>
+  </send-request>
+  <send-request mode="new" response-variable-name="products" timeout="20" ignore-error="true">
+    <set-url>https://as-apim-2020-products.azurewebsites.net/products/totalcount</set-url>
+    <set-method>GET</set-method>
+    <set-header name="Content-Type" exists-action="override">
+      <value>application/json</value>
+    </set-header>
+  </send-request>
+  <return-response>
+    <set-status code="200" reason="OK" />
+    <set-header name="Content-Type" exists-action="override">
+      <value>application/json</value>
+    </set-header>
+    <set-body>@(new JObject(
+        new JProperty("customers",((IResponse)context.Variables["customers"]).Body.As<JObject>()),  
+        new JProperty("products",((IResponse)context.Variables["products"]).Body.As<JObject>())  
+    ).ToString())</set-body>
+  </return-response>
+</inbound>

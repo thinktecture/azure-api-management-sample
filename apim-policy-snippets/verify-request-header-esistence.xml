@@ -1,0 +1,5 @@
+<inbound>
+  <check-header name="X-Application-Context" failed-check-httpcode="400" 
+    failed-check-error-message="Bad Request" ignore-case="true" />
+  <base />
+</inbound>
